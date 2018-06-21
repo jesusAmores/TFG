@@ -27,12 +27,7 @@ try:
                 birthYear : lineSplitted[2],
                 deathYear : lineSplitted[3],
                 primaryProfession : lineSplitted[4],
-                knownForTitles : [
-                    filmsList[0],
-                    filmsList[1],
-                    filmsList[2],
-                    filmsList[3]
-                ],
+                knownForTitles : filmsList,
             })
             print("Inserted actor " + lineSplitted[1]);
 finally:

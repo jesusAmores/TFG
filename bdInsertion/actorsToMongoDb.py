@@ -4,8 +4,8 @@ try:
     file = open("actors.tsv",encoding="utf8")
 
     client = MongoClient()
-    db = client.persons
-    collection = db.actors
+    db = client.actors
+    collection = db.persons
 
     for line in file:
         lineSplitted = line.split("\t")
@@ -16,7 +16,7 @@ try:
             birthYear = lineSplitted[2]
             deathYear = lineSplitted[3]
             primaryProfession = lineSplitted[4]
-            knownForTitles = lineSplitted[5]
+            knownForTitles = lineSplitted[5].strip()
 
         else:
             collection.insert_one({
@@ -25,8 +25,8 @@ try:
                 birthYear : lineSplitted[2],
                 deathYear : lineSplitted[3],
                 primaryProfession : lineSplitted[4],
-                knownForTitles : lineSplitted[5],
+                knownForTitles : lineSplitted[5].strip(),
             })
-            print("Inserted actor " + lineSplitted[1])
+            print("Inserted actor " + lineSplitted[1] + "with references ;" + lineSplitted[5].strip() +";");
 finally:
     file.close()

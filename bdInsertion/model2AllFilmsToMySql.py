@@ -5,7 +5,7 @@ PORT = 3306
 USER = 'root'
 PASSWORD = 'pass'
 AUX_DB = 'mysql'
-DB = 'model2All'
+DB = 'model2all'
 TABLE = 'films'
 ##Connects to another created db and create database
 conn = pymysql.connect(host=HOST, port=PORT, user=USER, passwd=PASSWORD, db=AUX_DB, use_unicode=True)
